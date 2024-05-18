@@ -1,0 +1,33 @@
+
+-----------------------TABELAS------------------------
+CREATE TABLE produto (
+    id              INTEGER     NOT NULL GENERATED ALWAYS 
+                    AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    nome_prod       VARCHAR(50) NOT NULL,
+    validade        DATE        NOT NULL,
+    fabricante      VARCHAR(50) NOT NULL,
+    preco           VARCHAR(7) 
+);
+
+CREATE TABLE venda (
+    id              INTEGER     NOT NULL GENERATED ALWAYS 
+                    AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    prod_vendido       VARCHAR(50) NOT NULL,
+    data_venda        DATE        NOT NULL,
+    valor_total           VARCHAR(7) 
+); 
+
+----------------INSERTS VENDAS-----------------------
+INSERT INTO venda (prod_vendido,
+                     data_venda,
+                     valor_total)
+  VALUES('sabonete de morango', '2024-05-11', '5.90'); 
+
+INSERT INTO venda (prod_vendido,
+                     data_venda,
+                     valor_total)
+  VALUES('pasta de dente', '2024-05-11', '7.90');
+
+
+SELECT * FROM produto;
+SELECT * FROM venda;

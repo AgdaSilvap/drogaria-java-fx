@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drogariajavafx.controller.FXMLMainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" onAction="#handleMenuItemCadastroProduto" text="Cadastro">
+            <items>
+                  <MenuItem id="menuItemCadastroProduto" fx:id="menuItemCadastroProduto" mnemonicParsing="false" onAction="#handleMenuItemCadastroProduto" text="Produtos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Processos">
+            <items>
+                  <MenuItem fx:id="menuItemListaProdutos" mnemonicParsing="false" onAction="#handleMenuItemListaProdutos" text="Listar Produtos" />
+                  <MenuItem fx:id="menuItemProcessosVendas" mnemonicParsing="false" onAction="#handleMenuItemProcessosVendas" text="Realizar Venda" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Gráficos">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Vendas por Mês" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Relatórios">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Produtos" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="377.0" prefWidth="600.0" />
+   </children>
+</VBox>
