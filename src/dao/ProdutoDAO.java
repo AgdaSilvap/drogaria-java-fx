@@ -37,7 +37,7 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(resultado.getInt("id"));
                 produto.setNome(resultado.getString("nome_prod"));
-                produto.setValidade(resultado.getDate("validade"));
+                produto.setValidade(resultado.getString("validade"));
                 produto.setFabricante(resultado.getString("fabricante"));
                 produto.setPreco(resultado.getDouble("preco"));
                 retorno.add(produto);
@@ -53,7 +53,7 @@ public class ProdutoDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, produto.getNome());
-            stmt.setDate(2, produto.getValidade());
+            stmt.setString(2, produto.getValidade());
             stmt.setString(3, produto.getFabricante());
             stmt.setDouble(4, produto.getPreco());
             stmt.execute();
@@ -69,7 +69,7 @@ public class ProdutoDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, produto.getNome());
-            stmt.setDate(2, produto.getValidade());
+            stmt.setString(2, produto.getValidade());
             stmt.setString(3, produto.getFabricante());
             stmt.setDouble(4, produto.getPreco());
             stmt.setInt(5, produto.getId());

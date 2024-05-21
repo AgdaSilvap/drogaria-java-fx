@@ -1,4 +1,6 @@
 
+package model.produto;
+
 import dao.ProdutoDAO;
 
 public class ProdutoDelete {

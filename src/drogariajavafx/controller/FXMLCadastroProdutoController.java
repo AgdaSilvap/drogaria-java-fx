@@ -1,10 +1,9 @@
 
 package drogariajavafx.controller;
 
-
-import model.produto.ProdutoInsert;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -13,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import static model.produto.ProdutoInsert.produtoInsert;
 
 
 public class FXMLCadastroProdutoController implements Initializable {
@@ -33,15 +33,21 @@ public class FXMLCadastroProdutoController implements Initializable {
         // TODO
     }    
     
+     @FXML
      public void handleButtonSalvar() {
         
         String nome_prod = textFieldProduto.getText();
-        Date validade = java.sql.Date.valueOf(datePickerProdutoData.getValue());
+        String validade = String.valueOf(datePickerProdutoData.getValue());
         String fabricante = textFieldFabricante.getText();
         double preco = Double.parseDouble(String.valueOf(textFieldPreco.getText())); 
         
         if (validarEntradaDeDados()) {
         produtoInsert(nome_prod, validade, fabricante, preco);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cadastro de Produtos");
+        alert.setHeaderText("Produto Cadastrado!");
+        alert.setContentText("O produto inserido foi cadastrado com sucesso!");
+        alert.show();
         
         } 
     }

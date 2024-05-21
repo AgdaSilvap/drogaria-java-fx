@@ -39,6 +39,6 @@
             <DatePicker fx:id="datePickerProdutoData" prefHeight="25.0" prefWidth="107.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button fx:id="buttonSalvar" layoutX="398.0" layoutY="261.0" mnemonicParsing="false" text="Salvar" />
+      <Button fx:id="buttonSalvar" layoutX="398.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonSalvar" text="Salvar" />
    </children>
 </AnchorPane>

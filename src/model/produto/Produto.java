@@ -1,26 +1,25 @@
 
 package model.produto;
 
-import java.sql.Date;
 
 public class Produto {
     private Integer id;
     private String nome_prod;
-    private Date validade;
+    private String validade;
     private String fabricante;
     private Double preco;
     
     public Produto(){
     }
     
-    public Produto(String nome_prod, Date validade, String fabricante, Double preco){
+    public Produto(String nome_prod, String validade, String fabricante, Double preco){
         this.nome_prod = nome_prod;
         this.validade = validade;
         this.fabricante = fabricante; 
         this.preco = preco;
     }
     
-    public Produto(Integer id, String nome_prod, Date validade, String fabricante, Double preco){
+    public Produto(Integer id, String nome_prod, String validade, String fabricante, Double preco){
         this.id = id;
         this.nome_prod = nome_prod;
         this.validade = validade;
@@ -44,11 +43,11 @@ public class Produto {
         this.nome_prod = nome_prod;
     }
 
-    public Date getValidade() {
+    public String getValidade() {
         return validade;
     }
 
-    public void setValidade(Date validade) {
+    public void setValidade(String validade) {
         this.validade = validade;
     }
     

@@ -4,7 +4,7 @@ CREATE TABLE produto (
     id              INTEGER     NOT NULL GENERATED ALWAYS 
                     AS IDENTITY (START WITH 1, INCREMENT BY 1),
     nome_prod       VARCHAR(50) NOT NULL,
-    validade        DATE        NOT NULL,
+    validade        CHAR(10)    NOT NULL,
     fabricante      VARCHAR(50) NOT NULL,
     preco           VARCHAR(7) 
 );
@@ -28,6 +28,20 @@ INSERT INTO venda (prod_vendido,
                      valor_total)
   VALUES('pasta de dente', '2024-05-11', '7.90');
 
+----------------INSERTS PRODUTO-----------------------
+INSERT INTO produto (nome_prod,
+                     validade,
+                     fabricante,
+                     preco)
+  VALUES('sabonete de morango', '11-05-2024', 'Natura', '5.90'); 
 
+INSERT INTO produto (nome_prod,
+                     validade,
+                     fabricante,
+                     preco)
+  VALUES('pasta de dente', '11-05-2024', 'Colgate', '7.90');
+
+
+-------------------------------------------------------------
 SELECT * FROM produto;
 SELECT * FROM venda;
