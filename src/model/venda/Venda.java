@@ -1,29 +1,28 @@
 
 package model.venda;
 
-import java.sql.Date;
-
 public class Venda {
     private Integer id;
     private String prod_vendido;
-    private Date data_venda;
+    private String data_venda;
     private Double valor_total;
     
     public Venda(){
     }
     
-    public Venda(String prod_vendido, Date data_venda, Double valor_total){
+    public Venda(String prod_vendido, String data_venda, Double valor_total){
         this.prod_vendido = prod_vendido;
         this.data_venda = data_venda; 
         this.valor_total = valor_total;
     }
     
-    public Venda(Integer id, String prod_vendido, Date data_venda, Double valor_total){
+    public Venda(Integer id, String prod_vendido, String data_venda, Double valor_total){
         this.id = id;
         this.prod_vendido = prod_vendido;
         this.data_venda = data_venda; 
         this.valor_total = valor_total;
     }
+    
 
     public Integer getId() {
         return id;
@@ -41,11 +40,11 @@ public class Venda {
         this.prod_vendido = prod_vendido;
     }
 
-    public Date getData() {
+    public String getData() {
         return data_venda;
     }
 
-    public void setData(Date data_venda) {
+    public void setData(String data_venda) {
         this.data_venda = data_venda;
     }
    

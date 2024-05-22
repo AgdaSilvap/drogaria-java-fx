@@ -13,8 +13,8 @@ CREATE TABLE venda (
     id              INTEGER     NOT NULL GENERATED ALWAYS 
                     AS IDENTITY (START WITH 1, INCREMENT BY 1),
     prod_vendido       VARCHAR(50) NOT NULL,
-    data_venda        DATE        NOT NULL,
-    valor_total           VARCHAR(7) 
+    data_venda         CHAR(10)    NOT NULL,
+    valor_total        VARCHAR(7) 
 ); 
 
 ----------------INSERTS VENDAS-----------------------

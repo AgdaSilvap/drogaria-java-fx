@@ -44,7 +44,13 @@ public class FXMLListaProdutosController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        carregarListViewProdutos();
+        
+        selecionarItemListViewProduto(null);
+
+        // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
+        listViewProduto.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> selecionarItemListViewProduto(newValue));
     }    
     
     
@@ -57,9 +63,9 @@ public class FXMLListaProdutosController implements Initializable {
 
     public void selecionarItemListViewProduto(Produto produto) {
         if (produto != null) {
-            labelProduto.setText(String.valueOf(produto.getNome()));
+            labelProduto.setText(produto.getNome());
             labelValidade.setText(produto.getValidade());
-            labelFabricante.setText(produto.getValidade());
+            labelFabricante.setText(produto.getFabricante());
             labelPreco.setText(String.valueOf(produto.getPreco()));
         } else {
             labelProduto.setText("");
@@ -72,10 +78,11 @@ public class FXMLListaProdutosController implements Initializable {
     @FXML
     public void handleButtonAlterar() throws IOException {
         Produto produto = listViewProduto.getSelectionModel().getSelectedItem();//Obtendo cliente selecionado
+        
         if (produto != null) {
             boolean buttonConfirmarClicked = showFXMLAlterarProdutoDialog(produto);
             if (buttonConfirmarClicked) {
-                ProdutoUpdate.mainUpdate();
+                ProdutoUpdate.mainUpdate(produto);
                 carregarListViewProdutos();
             }
         } else {

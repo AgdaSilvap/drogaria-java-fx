@@ -37,7 +37,7 @@ public class VendaDAO {
                 Venda venda = new Venda();
                 venda.setId(resultado.getInt("id"));
                 venda.setProduto(resultado.getString("prod_vendido"));
-                venda.setData(resultado.getDate("data_venda"));
+                venda.setData(resultado.getString("data_venda"));
                 venda.setValor(resultado.getDouble("valor_total"));
                 retorno.add(venda);
             }
@@ -52,7 +52,7 @@ public class VendaDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, venda.getProduto());
-            stmt.setDate(2, venda.getData());
+            stmt.setString(2, venda.getData());
             stmt.setDouble(3, venda.getValor());
             stmt.execute();
             return true;
@@ -67,7 +67,7 @@ public class VendaDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, venda.getProduto());
-            stmt.setDate(2, venda.getData());
+            stmt.setString(2, venda.getData());
             stmt.setDouble(3, venda.getValor());
             stmt.execute();
             return true;

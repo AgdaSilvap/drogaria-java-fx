@@ -2,38 +2,36 @@
 package drogariajavafx.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.produto.Produto;
+import model.venda.Venda;
+import model.venda.VendaInsert;
 
 
-public class FXMLAlterarProdutoDialogController implements Initializable {
-    @FXML
-    private Label labelProduto;
-    @FXML
-    private Label labelFabricante;
-    @FXML
-    private Label labelPreco;
-    @FXML
+public class FXMLCadastroVendaDialogController implements Initializable {
+
+   @FXML
     private TextField textFieldProduto;
     @FXML
-    private TextField textFieldFabricante;
+    private DatePicker datePickerVendaData;
     @FXML
-    private TextField textFieldPreco;
+    private TextField textFieldValor;
     @FXML
     private Button buttonConfirmar;
     @FXML
     private Button buttonCancelar;
 
     private Stage dialogStage;
-    private boolean buttonConfirmarClicked = false;
-    private Produto produto;
+    boolean buttonConfirmarClicked = false;
+   
+    private Venda venda;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,32 +46,32 @@ public class FXMLAlterarProdutoDialogController implements Initializable {
         this.dialogStage = dialogStage;
     }
 
-    public Produto getProduto() {
-        return this.produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-        this.textFieldProduto.setText(produto.getNome());
-        this.textFieldFabricante.setText(produto.getFabricante());
-        this.textFieldPreco.setText(String.valueOf(produto.getPreco()));
+    public Venda getVenda() {
+        return this.venda;
     }
 
     public boolean isButtonConfirmarClicked() {
         return buttonConfirmarClicked;
     }
-
+    
     @FXML
-    public Produto handleButtonConfirmar() {
+    public void handleButtonConfirmar() {
+        String nome_prod = textFieldProduto.getText();
+        String data_venda = String.valueOf(datePickerVendaData.getValue());
+        double preco = Double.parseDouble(String.valueOf(textFieldValor.getText())); 
+        
         if (validarEntradaDeDados()) {
-            produto.setNome(textFieldProduto.getText());
-            produto.setFabricante(textFieldFabricante.getText());
-            produto.setPreco(Double.parseDouble(textFieldPreco.getText()));
-
-            buttonConfirmarClicked = true;
-            dialogStage.close();
-        }
-        return null;
+        VendaInsert.mainInsert(nome_prod, data_venda, preco);
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cadastro de Vendas");
+        alert.setHeaderText("Venda Cadastrada!");
+        alert.setContentText("A venda inserida foi cadastrada com sucesso!");
+        alert.show();
+        
+        dialogStage.close();
+        buttonConfirmarClicked = true;
+     }
     }
 
     @FXML
@@ -88,10 +86,10 @@ public class FXMLAlterarProdutoDialogController implements Initializable {
         if (textFieldProduto.getText() == null || textFieldProduto.getText().length() == 0) {
             errorMessage += "Nome de produto inválido!\n";
         }
-        if (textFieldFabricante.getText() == null || textFieldFabricante.getText().length() == 0) {
-            errorMessage += "Fabricante inválido!\n";
+        if (datePickerVendaData == null ) {
+            errorMessage += "Data inválida!\n";
         }
-        if (textFieldPreco.getText() == null || textFieldPreco.getText().length() == 0) {
+        if (textFieldValor.getText() == null || textFieldValor.getText().length() == 0) {
             errorMessage += "Preço inválido!\n";
         }
         
@@ -107,4 +105,5 @@ public class FXMLAlterarProdutoDialogController implements Initializable {
             return false;
         }
     }
+    
 }

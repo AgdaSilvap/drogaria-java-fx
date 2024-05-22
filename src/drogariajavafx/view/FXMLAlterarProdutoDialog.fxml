@@ -5,15 +5,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="224.0" prefWidth="353.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="drogariajavafx.controller.FXMLAlterarProdutoDialogController">
+<AnchorPane id="AnchorPane" prefHeight="224.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drogariajavafx.controller.FXMLAlterarProdutoDialogController">
    <children>
       <Label layoutX="54.0" layoutY="59.0" text="Produto" />
       <Label layoutX="54.0" layoutY="88.0" text="Fabricante" />
       <Label layoutX="54.0" layoutY="120.0" text="Preço" />
-      <TextField layoutX="136.0" layoutY="55.0" />
-      <TextField layoutX="136.0" layoutY="84.0" />
-      <TextField layoutX="136.0" layoutY="116.0" />
-      <Button fx:id="buttonConfirmar" layoutX="216.0" layoutY="179.0" mnemonicParsing="false" text="Confirmar" />
+      <TextField fx:id="textFieldProduto" layoutX="136.0" layoutY="55.0" />
+      <TextField fx:id="textFieldFabricante" layoutX="136.0" layoutY="84.0" />
+      <TextField fx:id="textFieldPreco" layoutX="136.0" layoutY="116.0" />
+      <Button fx:id="buttonConfirmar" layoutX="144.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" text="Confirmar" />
+      <Label fx:id="labelProduto" layoutX="142.0" layoutY="88.0" />
+      <Label fx:id="labelFabricante" layoutX="142.0" layoutY="59.0" />
+      <Label fx:id="labelPreco" layoutX="142.0" layoutY="120.0" />
+      <Button fx:id="buttonCancelar" layoutX="223.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleButtonCancelar" text="Cancelar" />
    </children>
 </AnchorPane>
